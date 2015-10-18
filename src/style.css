@@ -1,0 +1,153 @@
+/** No SASS here for a change, since it's a very simple bit of CSS. **/
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "PT Sans", arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
+    background-color: #FFFFF5;
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Cambria, serif;
+    font-weight: normal;
+}
+
+h1 {
+    margin: 0 0 0.3em;
+    padding: 0.7em 0;
+    border-bottom: 5px solid hsla(0, 0%, 60%, 0.1);
+    font-size: 3em;
+    text-align: center;
+}
+
+h2 {
+    padding: 0.2em 0;
+    border-bottom: 1px solid hsla(65, 70%, 40%, 0.3);
+    text-shadow: 1px 2px hsla(65, 70%, 40%, 0.25);
+}
+
+a { color: #2558B2; }
+
+.js-only { display: none; }
+
+.toggler {
+    padding: 4px 8px;
+    background-color: #DDD;
+    cursor: pointer;
+}
+
+::selection { background-color: hotpink; }
+
+/** NAV **/
+.navigation {
+    padding: 1em;
+    background-color: #E5E5E1;
+    text-align: center;
+}
+
+.navigation > h3 {
+    margin: 0;
+    cursor: pointer;
+}
+
+.navigation > menu {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navigation > menu > li {
+    margin: 0.7em 0;
+}
+
+a.nav-link {
+    color: #666;
+    font-size: 1em;
+    text-shadow: 0 1px #FFF;
+    text-decoration: none;
+}
+
+a.nav-link:before, a.nav-link:after {
+    content: '-';
+    padding: 0 0.5em;
+}
+
+/** LEFTWARDS **/
+.container {
+    max-width: 750px;
+    margin: 0 auto 3em;
+}
+
+.leftwards { padding: 1em; }
+
+ul { list-style-type: square; }
+
+.fact-block {
+    line-height: 2.5em;
+    text-align: center;
+}
+.fact-block > strong {
+    color: #666;
+    padding-right: 0.75em;
+}
+
+.print-intro, .references {
+    border: 1px solid #CCC;
+    text-align: center;
+}
+
+.print-intro {
+    display: none;
+    font-size: .9em;
+}
+
+.references {
+    margin: 3em 0;
+    font-weight: bold;
+}
+
+.employment td { display: block; }
+.employment td:first-child {
+    font-style: italic;
+    vertical-align: top;
+}
+
+/** RESPONSIVE **/
+@media( min-width: 1000px ) {
+    body {
+        font-size: 16px;
+    }
+    .navigation {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 25%;
+        box-shadow: 0 0 30px hsla( 0, 0%, 0%, 0.4 );
+    }
+    .navigation > h3 {
+        margin-bottom: 1em;
+        font-size: 1.5em;
+    }
+    .navigation > menu { display: block; }
+    .leftwards { margin-right: 25%; }
+    .employment td { display: table-cell; padding: 0.5em 1em; }
+    .employment td:first-child { width: 120px; }
+}
+
+/** PRINT **/
+@media print {
+    body { font-size: 12px; }
+    .navigation { display: none; }
+    .js-only { display: none !important; }
+    .hidden { display: none !important; }
+    .print-intro { display: block; }
+}
