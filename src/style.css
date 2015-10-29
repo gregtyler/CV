@@ -33,14 +33,26 @@ h2 {
     text-shadow: 1px 2px hsla(65, 70%, 40%, 0.25);
 }
 
-a { color: #2558B2; }
+h4 {
+    font-size: 17px;
+}
+
+a {
+    color: #2558B2;
+    text-decoration: none;
+}
 
 .js-only { display: none; }
 
 .toggler {
     padding: 4px 8px;
-    background-color: #DDD;
+    background-color: #D5D5D5;
     cursor: pointer;
+}
+
+.toggler.active {
+    background-color: #666;
+    color: #FFF;
 }
 
 ::selection { background-color: hotpink; }
@@ -48,7 +60,7 @@ a { color: #2558B2; }
 /** NAV **/
 .navigation {
     padding: 1em;
-    background-color: #E5E5E1;
+    background-color: #E3E3DD;
     text-align: center;
 }
 
@@ -71,7 +83,6 @@ a { color: #2558B2; }
 a.nav-link {
     color: #666;
     font-size: 1em;
-    text-shadow: 0 1px #FFF;
     text-decoration: none;
 }
 
@@ -114,10 +125,29 @@ ul { list-style-type: square; }
     font-weight: bold;
 }
 
+/** EMPLOYMENT TABLE **/
+.employment {
+    border-collapse: collapse;
+}
+
 .employment td { display: block; }
 .employment td:first-child {
     font-style: italic;
     vertical-align: top;
+}
+
+.employment td > h3 {
+    margin-top: 0;
+}
+
+/* Highlight current employment */
+.employment-current {
+    border-bottom: 0.5em solid #FFFFF5;
+    background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.employment-current td {
+    padding: 0.5em 0.75em;
 }
 
 /** RESPONSIVE **/
@@ -131,7 +161,7 @@ ul { list-style-type: square; }
         bottom: 0;
         right: 0;
         width: 25%;
-        box-shadow: 0 0 30px hsla( 0, 0%, 0%, 0.4 );
+        box-shadow: 0 0 30px hsla(50, 80%, 15%, 0.4);
     }
     .navigation > h3 {
         margin-bottom: 1em;

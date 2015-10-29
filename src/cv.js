@@ -32,16 +32,22 @@ each($('.hidden'), disp, 'none');
 each($('.js-only'), disp, 'block');
 
 // Make the data-toggle object actually toggle things
-each($('[data-toggle]'), function() {
-  this.addEventListener( 'click', function() {
-    var id = this.getAttribute('data-toggle');
+each($('.toggler'), function(event) {
+  this.addEventListener( 'click', function(event) {
+    var id = this.getAttribute('href').substr(1);
     var obj = $('#'+id)[0];
 
     // If the object doesn't exist, continue
     if(!obj) return;
 
+    event.preventDefault();
+
+    // Is the toggled option currently hidden?
+    var isHidden = getComputedStyle(obj).display === 'none';
+
     // Toggle the object's display
-    disp.call(obj, getComputedStyle(obj).display === 'none' ? 'block' : 'none');
+    disp.call(obj, isHidden ? 'block' : 'none');
+    this.classList[isHidden ? 'add' : 'remove']('active');
 
     // Track in GA events
     ga('send', 'event', 'toggler', 'click', id);
