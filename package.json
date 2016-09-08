@@ -1,8 +1,27 @@
 {
-  "devDependencies": {
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-inline-source": "^2.1.0",
     "vinyl-ftp": "^0.4.5"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregtyler/CV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gregtyler/CV/issues"
+  },
+  "homepage": "https://github.com/gregtyler/CV#readme"
 }

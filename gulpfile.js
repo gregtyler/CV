@@ -5,11 +5,17 @@ var inlinesource = require('gulp-inline-source');
 
 var secret = require('./secret.json');
 
-gulp.task('default', ['deploy'], function () {
+// Error handling
+function handleError(err) {
+  console.error(err.message);
+  this.emit('end');
+}
+
+gulp.task('clean', function () {
   return del('build');
 });
 
-gulp.task('deploy', ['createfile'], function () {
+gulp.task('deploy', ['build'], function () {
   var conn = ftp.create({
     host: secret.host,
     user: secret.user,
@@ -20,8 +26,14 @@ gulp.task('deploy', ['createfile'], function () {
     .pipe(conn.dest(secret.path));
 });
 
-gulp.task('createfile', function () {
+gulp.task('build', function () {
   return gulp.src('src/index.html')
-    .pipe(inlinesource())
+    .pipe(inlinesource().on('error', handleError))
     .pipe(gulp.dest('build'));
 });
+
+gulp.task('watch', function () {
+  gulp.watch('src/**/*', ['build']);
+});
+
+gulp.task('default', ['build', 'watch']);
