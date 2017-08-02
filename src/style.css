@@ -45,7 +45,7 @@ h4 {
 
 a {
     color: #2558B2;
-    text-decoration: none;
+    text-decoration-skip: ink;
 }
 
 .js-only { display: none; }
