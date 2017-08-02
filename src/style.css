@@ -76,12 +76,16 @@ ul { list-style-type: square; }
     line-height: 2.5em;
     justify-content: center;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .fact-block > dt, .fact-block > dd {
     display: inline-block;
     width: 50%;
 }
+
+.fact-block > dt { width: 30%; }
+.fact-block > dd { width: 70%; }
 
 @media( min-width: 500px ) {
     .fact-block > dt, .fact-block > dd {
