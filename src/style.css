@@ -7,6 +7,7 @@
 
 body {
     margin: 0;
+    padding: 1rem;
     font-family: "PT Sans", arial, sans-serif;
     font-size: 14px;
     line-height: 1.5em;
@@ -16,7 +17,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Federo", serif;
     font-weight: normal;
     letter-spacing: 0;
 }
