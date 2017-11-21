@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var del = require('del');
-var ftp = require('vinyl-ftp');
 var inlinesource = require('gulp-inline-source');
 
 var secret = require('./secret.json');
@@ -13,17 +12,6 @@ function handleError(err) {
 
 gulp.task('clean', function () {
   return del('build');
-});
-
-gulp.task('deploy', ['build'], function () {
-  var conn = ftp.create({
-    host: secret.host,
-    user: secret.user,
-    password: secret.password
-  });
-
-  return gulp.src('build/index.html')
-    .pipe(conn.dest(secret.path));
 });
 
 gulp.task('build', function () {
