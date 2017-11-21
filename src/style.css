@@ -148,7 +148,7 @@ ul { list-style-type: square; }
     body { font-size: 16px; }
 
     .timeline-table td { display: table-cell; padding: 0.5em 1em; }
-    .timeline-table td:first-child { text-align: right; }
+    .timeline-table td:first-child { text-align: right; min-width: 120px; }
     .timeline-table tr + tr > td { border-top: 1px solid hsla(0, 0%, 0%, 0.2); }
 
     .column-auto {
