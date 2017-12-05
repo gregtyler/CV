@@ -2,8 +2,6 @@ var gulp = require('gulp');
 var del = require('del');
 var inlinesource = require('gulp-inline-source');
 
-var secret = require('./secret.json');
-
 // Error handling
 function handleError(err) {
   console.error(err.message);
