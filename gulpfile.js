@@ -9,13 +9,13 @@ function handleError(err) {
 }
 
 gulp.task('clean', function () {
-  return del('build');
+  return del('public');
 });
 
 gulp.task('build', function () {
   return gulp.src('src/index.html')
     .pipe(inlinesource().on('error', handleError))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('watch', function () {
