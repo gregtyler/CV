@@ -1,0 +1,30 @@
+image: node:9.5.0
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: npm run build
+  artifacts:
+    paths:
+    - public
+
+deploy:
+  stage: deploy
+  before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - eval $(ssh-agent -s)
+  - echo "$DEPLOY_SSH" | tr -d '\r' | ssh-add - > /dev/null
+  - ssh-keyscan -H -t rsa $DEPLOY_HOST > ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  script:
+    - scp public/index.html $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+  environment:
+    name: production
+    url: https://cv.gregtyler.co.uk
+  only:
+  - master
