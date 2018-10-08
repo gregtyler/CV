@@ -68,7 +68,6 @@ ul { list-style-type: square; }
 
 .fact-block {
     display: flex;
-    line-height: 2.5em;
     justify-content: center;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -76,6 +75,7 @@ ul { list-style-type: square; }
 
 .fact-block > dt, .fact-block > dd {
     display: inline-block;
+    margin-bottom: 1em;
     width: 50%;
 }
 
@@ -83,8 +83,11 @@ ul { list-style-type: square; }
 .fact-block > dd { width: 70%; }
 
 @media( min-width: 500px ) {
-    .fact-block > dt, .fact-block > dd {
-        width: 25%;
+    .fact-block > dt {
+        width: 20%;
+    }
+    .fact-block > dd {
+        width: 30%;
     }
 }
 
