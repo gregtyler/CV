@@ -1,8 +1,0 @@
-# NPM modules
-node_modules
-
-# Build directory should not be committed
-public
-
-# Configuration file
-secret.json
