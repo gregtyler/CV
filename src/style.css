@@ -142,7 +142,9 @@ ul { list-style-type: square; }
 
 /** PRINT **/
 @media print {
-    body { font-size: 12px; }
+    body { font-size: 13px; }
     .hidden { display: none !important; }
     .print-intro { display: block; }
+    .timeline-table tr { break-inside: avoid; }
+    .timeline-table--current td { padding: 0; }
 }
